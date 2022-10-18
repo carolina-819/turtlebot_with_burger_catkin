@@ -1,0 +1,4 @@
+#!/bin/bash
+export TURTLEBOT_3D_SENSOR=kinect
+export TURTLEBOT3_MODEL=waffle
+roslaunch turtlebot3_gazebo turtlebot3_gazebo_rviz.launch

@@ -1,0 +1,5 @@
+#!/bin/bash
+#export TURTLEBOT_3D_SENSOR=kinect
+export TURTLEBOT3_MODEL=burger
+#roslaunch turtlebot3_gazebo turtlebot3_empty_world.launch use_sim_time:=true 
+roslaunch turtlebot3_gazebo turtlebot3_house.launch use_sim_time:=true
