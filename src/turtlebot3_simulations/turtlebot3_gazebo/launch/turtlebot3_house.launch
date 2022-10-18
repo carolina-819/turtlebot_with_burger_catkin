@@ -1,0 +1,36 @@
+<launch>
+  <arg name="model" default="$(env TURTLEBOT3_MODEL)" doc="model type [burger, waffle, waffle_pi]"/>
+  <arg name="x_pos" default="-3.0"/>
+  <arg name="y_pos" default="1.0"/>
+  <arg name="z_pos" default="0.0"/>
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find turtlebot3_gazebo)/worlds/turtlebot3_house.world"/>
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+    <arg name="headless" value="false"/>
+    <arg name="debug" value="false"/>
+  </include>
+
+  <param name="robot_description" command="$(find xacro)/xacro --inorder $(find turtlebot3_description)/urdf/turtlebot3_$(arg model).urdf.xacro" />
+
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-urdf -model turtlebot3 -x $(arg x_pos) -y $(arg y_pos) -z $(arg z_pos) -param robot_description" />
+ 
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+  <node pkg="nodelet" type="nodelet" name="nodelet_manager" args="manager" />
+
+  <node pkg="nodelet" type="nodelet" name="nodelet1"
+        args="load depth_image_proc/register nodelet_manager">
+    <remap from="rgb/camera_info" to="d435/color/camera_info"/>
+    <remap from="depth/camera_info" to="d435/depth/camera_info"/>
+    <remap from="depth/image_rect" to="d435/depth/image_raw"/>
+    <remap from="depth_registered/camera_info" to="d435/aligned_depth_to_color/camera_info"/>
+    <remap from="depth_registered/image_rect" to="d435/aligned_depth_to_color/image_raw"/>
+    <param name="interpolation" value="0" />
+    <param name="fill_upsampling_holes" value="true" />
+  </node>
+
+<!--remap from="/d435/aligned_depth_to_color/image_raw" to="/camera/depth_registered/image_raw"/>
+<remap from="/d435/color/image_raw" to="/camera/rgb/image_raw"/-->
+</launch>
