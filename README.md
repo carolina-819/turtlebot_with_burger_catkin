@@ -1,5 +1,9 @@
 # turtlebot_with_burger_catkin
 
+### Pre requesites
+- ROS melodic
+- Ubuntu 18
+
 Código criado no âmbito da dissertação "Sensor Fusion and  Mapping of a wheeled Mobile Robot using Vision and LiDAR", de Carolina  Marques
 
 Sensor fusion SLAM algorithm between an LDS-01 and a Intel Realsense D435 RGB-D sensor, with support for the Turtlebot3 simulation environments.
@@ -8,15 +12,17 @@ How to run the algorithm
 
 1. Clone the repository on https://github.com/carolina-819/ORB-SLAM2-sensor-fusion and follow the instructions on that README.md file
 
-2. Create a new catkin workspace and clone this repository into that workspace
+2. Create a new catkin workspace http://wiki.ros.org/catkin/Tutorials/create_a_workspace
 
-3. Build the workspace
+3. Delete the existing src folder created and clone this repository into the root of your catkin workspace
 
-4. On the root of your catkin workspace, run
+4. Build the workspace
+
+5. On the root of your catkin workspace, run
 
    `chmod +x run_sim_gaz`
 
-5. run catkin_make to build the catkin workspace
+6. run catkin_make to build the catkin workspace
 
 
 
