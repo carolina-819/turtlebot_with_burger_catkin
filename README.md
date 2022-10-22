@@ -18,13 +18,11 @@ How to run the algorithm
 
 ![image](https://user-images.githubusercontent.com/61470279/197336448-29bceffb-c048-410c-9276-61f4c4d902bb.png)
 
-4. Build the workspace
+4. Build the workspace by running catkin_make
 
-5. On the root of your catkin workspace, run
+5. On the root of your catkin workspace, run 
 
    `chmod +x run_sim_gaz`
-
-6. run catkin_make to build the catkin workspace
 
 
 
