@@ -14,7 +14,9 @@ How to run the algorithm
 
 2. Create a new catkin workspace http://wiki.ros.org/catkin/Tutorials/create_a_workspace
 
-3. Delete the existing src folder created and clone this repository into the root of your catkin workspace
+3. Delete the existing src folder created and clone this repository into the root of your catkin workspace, take the folders from inside the cloned repository into the root folder. Your catkin workspace should look like this
+
+![image](https://user-images.githubusercontent.com/61470279/197336448-29bceffb-c048-410c-9276-61f4c4d902bb.png)
 
 4. Build the workspace
 
